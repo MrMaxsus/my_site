@@ -93,6 +93,7 @@ article {
 /*Навігація*/
 ul {
 	list-style: none;
+	flex-basis: auto;
 }
 
 /*buttons*/
