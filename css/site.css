@@ -31,7 +31,10 @@ z-index: 2;
 nav,aside{
   width: 20%;
   float: left;
-
+}
+aside2{
+  width: 20%;
+  float: right;
 }
 main{
   background-color: aquamarine;
