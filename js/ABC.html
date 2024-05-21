@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightskyblue;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        main input, main button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+        }
+        main button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        main button.cancel {
+            background-color: #f44336;
+        }
+        main button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Пошук букви в алфавіті</h2>
+        <input type="text" id="letterInput" placeholder="Введіть букву">
+        <div>
+            <button onclick="findLetter()">Пошук</button>
+            <button class="cancel" onclick="cancel()">Скасувати</button>
+        </div>
+        <p id="result"></p>
+    </main>
+
+    <script>
+        function findLetter() {
+            const letter = document.getElementById('letterInput').value.toLowerCase();
+            const alphabet = ["а", "б", "в", "г", "ґ", "д", "е", " є", "ж",
+                "з", "и", "і", "ї", "й", "к", "л", "м", "н",
+                "о", "п", "р", "с", "т", "у", "ф", "х", "ц",
+                "ч", "ш", "щ", "ь", "ю", "я"];
+
+            const index = alphabet.indexOf(letter);
+
+            const resultElement = document.getElementById('result');
+
+            if (index !== -1) {
+                resultElement.textContent = `Буква "${letter}" знайдена в алфавіті. Індекс: ${index + 1}`;
+            } else {
+                resultElement.textContent = `Буква "${letter}" не знайдена в алфавіті.`;
+            }
+        }
+
+        function cancel() {
+            document.getElementById('letterInput').value = '';
+            document.getElementById('result').textContent = '';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChessTable</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: lightskyblue;
+    }
+    h2 {
+        text-align: center;
+        margin-top: 0;
+        position: absolute;
+        top: 10%;
+        width: 100%;
+    }
+    canvas {
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+<h2>ШАХІВНИЦЯ</h2>
+<canvas id="chess" width="500" height="500">ШАХІВНИЦЯ</canvas>
+<script>
+    let canvas = document.getElementById("chess");
+    let cxt = canvas.getContext("2d");
+    cxt.fillStyle = "white";
+    cxt.fillRect(0, 0, 500, 500);
+    cxt.fillStyle = "black";
+    let shift = 0, width = 62.5;
+    for (let i = 0; i < 8; i++) {
+        for (let k = 0; k < 4; k++) {
+            cxt.fillRect(
+                shift + k * 2 * width,
+                i*width,
+                width,
+                width
+            );
+        }
+        if (shift > 0) {
+            shift = 0;
+        } else {
+            shift = 62.5;
+        }
+    }
+</script>
+</body>
+</html>

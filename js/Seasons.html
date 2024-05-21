@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasons</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightskyblue;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        main input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        main button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        main button:hover {
+            opacity: 0.9;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Пори року</h2>
+        <input type="number" id="monthInput" placeholder="Введіть номер місяця (1-12)">
+        <button onclick="checkSeason()">Перевірити</button>
+        <p id="result"></p>
+    </main>
+
+    <script>
+        function checkSeason() {
+            const month = +document.getElementById('monthInput').value;
+            const resultDiv = document.getElementById('result');
+
+            switch(month) {
+                case 1:
+                case 2:
+                case 12:
+                    resultDiv.innerText = 'Зима';
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    resultDiv.innerText = 'Весна';
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    resultDiv.innerText = 'Літо';
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                    resultDiv.innerText = 'Осінь';
+                    break;
+                default:
+                    resultDiv.innerText = 'Немає такого місяця: ' + month;
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

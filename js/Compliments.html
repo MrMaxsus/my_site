@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compliments</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightskyblue;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        main input, main button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+        }
+        main button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        main button.cancel {
+            background-color: #f44336;
+        }
+        main button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Скільки компліментів бажаєте?</h2>
+        <input type="number" id="numberInput" placeholder="Скільки компліментів бажаєте?" value="1">
+        <div>
+            <button onclick="generateCompliments()">Показати</button>
+            <button class="cancel" onclick="cancel()">Скасувати</button>
+        </div>
+        <div id="answer"></div>
+    </main>
+
+    <script>
+        function generateCompliments() {
+            const compliments = ["funny", "smart", "cool", "genius", "clever", "sensible", "cheerful", "generous", "kind", "creative", "quick-witted", "hard-working", "determined", "optimistic"];
+            const animals = ["polar bear", "cat", "leopard", "butterfly", "duck", "rabbit", "ladybug", "monkey", "rhino", "squirrel", "lion", "chicken", "cow", "dog", "deer", "bird"];
+            const colors = ["red", "yellow", "blue", "green", "orange", "pink", "purple", "violet", "#84ff73", "#a773ff", "#ff73f8", "#ff7373", "#41354d", "#f7fc71", "#91ffdd"];
+
+            const number = +document.getElementById('numberInput').value;
+            const answer = document.getElementById('answer');
+            let string = '';
+
+            if (isNaN(number)) {
+                string = "Ви ввели не число.";
+            } else {
+                for (let i = 1; i <= number; i++) {
+                    const rand1 = Math.floor(Math.random() * colors.length);
+                    const rand2 = Math.floor(Math.random() * compliments.length);
+                    const rand3 = Math.floor(Math.random() * animals.length);
+
+                    string += `<p style='color:${colors[rand1]}'>${i}) You are as ${compliments[rand2]} as ${animals[rand3]}!</p>`;
+                }
+            }
+
+            answer.innerHTML = string;
+        }
+
+        function cancel() {
+            document.getElementById('numberInput').value = '';
+            document.getElementById('answer').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

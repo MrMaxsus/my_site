@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greetings</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: lightskyblue;
+    }
+    main {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    main input {
+        padding: 10px;
+        font-size: 16px;
+        margin: 10px 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    main button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin: 5px;
+    }
+    main button.cancel {
+        background-color: #f44336;
+    }
+    main button:hover {
+        opacity: 0.9;
+    }
+    #greetings {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+<main>
+    <h2>Скільки хочеш привітань</h2>
+    <input type="number" id="numberInput" placeholder="Скільки хочеш привітань?" value="100">
+    <div>
+        <button onclick="generateGreetings()">Показати</button>
+        <button class="cancel" onclick="cancel()">Скасувати</button>
+    </div>
+    <div id="greetings"></div>
+</main>
+
+<script>
+    function generateGreetings() {
+        const number = +document.getElementById('numberInput').value;
+        const greetingsDiv = document.getElementById('greetings');
+        let count;
+        let times;
+
+        greetingsDiv.innerHTML = '';
+
+        for (count = 1; count <= number; count++) {
+            greetingsDiv.innerHTML += `${count}) Слава Україні! <br>`;
+        }
+
+        if (number % 10 == 1 && number != 11 && number % 100 != 11) {
+            times = "раз";
+        } else if (number % 10 >= 2 && number % 10 <= 4 && (number < 10 || number > 20) && (number < 110 || number > 120)) {
+            times = "рази";
+        } else {
+            times = "разів";
+        }
+
+        greetingsDiv.innerHTML += `Героям слава ${number} ${times}!`;
+    }
+
+    function cancel() {
+        document.getElementById('numberInput').value = '';
+        document.getElementById('greetings').innerHTML = '';
+    }
+</script>
+</body>
+</html>

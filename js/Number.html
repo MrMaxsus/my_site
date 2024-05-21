@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightskyblue;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        main input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        main button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        main button:hover {
+            opacity: 0.9;
+        }
+        #gameResult {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Вгадай число</h2>
+        <input type="number" id="userGuess" placeholder="Введіть число від 0 до 100">
+        <div>
+            <button onclick="guessNumber()">Перевірити</button>
+            <button class="cancel" onclick="cancel()">Скасувати</button>
+        </div>
+        <p id="gameResult"></p>
+    </main>
+
+    <script>
+        let numX = 25;
+        let counter = 0;
+
+        function guessNumber() {
+            let numUser = document.getElementById('userGuess').value;
+            let gameResult = document.getElementById('gameResult');
+            
+            if (numUser === "") {
+                gameResult.innerHTML = "Введіть число.";
+                return;
+            }
+            
+            numUser = +numUser;
+            counter++;
+
+            if (numUser < numX) {
+                gameResult.innerHTML = "Ваше число менше.";
+            } else if (numUser > numX) {
+                gameResult.innerHTML = "Ваше число більше.";
+            } else {
+                gameResult.innerHTML = `Ви вгадали! Число ${numX}. Спроб: ${counter}.`;
+            }
+        }
+
+        function cancel() {
+            document.getElementById('userGuess').value = '';
+            document.getElementById('gameResult').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

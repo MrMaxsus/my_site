@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightskyblue;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        main input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        main button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        main button:hover {
+            opacity: 0.9;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Розрахунок факторіала</h2>
+        <input type="number" id="factorial" placeholder="Введіть число">
+        <button onclick="calculateFactorial()">Розрахувати</button>
+        <p id="result"></p>
+    </main>
+
+    <script>
+        function calculateFactorial() {
+            let number = parseInt(document.getElementById('factorial').value);
+            let resultDiv = document.getElementById('result');
+
+            if (isNaN(number)) {
+                resultDiv.innerHTML = 'Будь ласка, введіть число.';
+                return;
+            }
+
+            if (number < 0) {
+                resultDiv.innerHTML = 'Факторіал не визначено для від`ємних чисел.';
+                return;
+            }
+
+            let factorial = 1;
+            for (let i = 2; i <= number; i++) {
+                factorial *= i;
+            }
+
+            resultDiv.innerHTML = `Факторіал числа ${number} дорівнює ${factorial}.`;
+        }
+    </script>  
+</body>
+</html>

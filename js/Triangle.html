@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightskyblue;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        main input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        main button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        main button:hover {
+            opacity: 0.9;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Розрахунок площі та периметру</h2>
+        
+        <h3>Прямокутника</h3>
+        <input type="number" id="aRect" placeholder="Введіть значення сторони a" value="3">
+        <input type="number" id="bRect" placeholder="Введіть значення сторони b" value="4">
+        <button onclick="calculateRectangle()">Розрахувати</button>
+        <div id="rectangleResult"></div>
+
+        <h3>Трикутника</h3>
+        <input type="number" id="aTr" placeholder="Введіть значення сторони a" value="3">
+        <input type="number" id="bTr" placeholder="Введіть значення сторони b" value="4">
+        <input type="number" id="cTr" placeholder="Введіть значення сторони c" value="5">
+        <button onclick="calculateTriangle()">Розрахувати</button>
+        <div id="triangleResult"></div>
+    </main>
+
+    <script>
+        function calculateRectangle() {
+            let a = parseFloat(document.getElementById('aRect').value);
+            let b = parseFloat(document.getElementById('bRect').value);
+            let S = a * b;
+            let P = (a + b) * 2;
+
+            document.getElementById('rectangleResult').innerHTML = `<p>Площа прямокутника дорівнює ${S} см²</p><p>Периметр прямокутника дорівнює ${P} см</p>`;
+        }
+
+        function calculateTriangle() {
+            let a = parseFloat(document.getElementById('aTr').value);
+            let b = parseFloat(document.getElementById('bTr').value);
+            let c = parseFloat(document.getElementById('cTr').value);
+            
+            if (a > 0 && b > 0 && c > 0 && (a + b) > c && (a + c) > b && (b + c) > a) {
+                let p = (a + b + c) / 2;
+                let S = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+                let P = a + b + c;
+
+                document.getElementById('triangleResult').innerHTML = `<p>Площа трикутника дорівнює ${S.toFixed(2)} см²</p><p>Периметр трикутника дорівнює ${P} см</p>`;
+            } else {
+                document.getElementById('triangleResult').innerHTML = `<p>Трикутника зі сторонами а=${a} b=${b} c=${c} не існує</p>`;
+            }
+        }
+    </script>
+    
+</body>
+</html>

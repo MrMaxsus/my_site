@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightskyblue;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        main input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+        }
+        main button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        main button.cancel {
+            background-color: #f44336;
+        }
+        main button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <main id="content">
+        <h2>Вхід в систему</h2>
+        <div>
+            <input type="text" id="login" placeholder="Логін">
+            <input type="password" id="password" placeholder="Пароль">
+        </div>
+        <div>
+            <button onclick="login()">Перевірити</button>
+            <button class="cancel" onclick="cancel()">Скасувати</button>
+        </div>
+        <p id="result"></p>
+    </main>
+
+    <script>
+        function login() {
+            let login = document.getElementById('login').value;
+            let password = document.getElementById('password').value;
+            let result = document.getElementById('result');
+
+            if (login === "Maxx") {
+                if (password === "Pass123") {
+                    result.innerHTML = "<div><p>Welcome!</p></div>";
+                } else if (password === "") {
+                    result.innerHTML = "<div><p>Password cancelled</p></div>";
+                } else {
+                    result.innerHTML = "<div><p>Password is wrong</p></div>";
+                }
+            } else if (login === "") {
+                result.innerHTML = "<div><p>Login cancelled</p></div>";
+            } else {
+                result.innerHTML = "<div><p>Login is wrong</p></div>";
+            }
+        }
+
+        function cancel() {
+            document.getElementById('login').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</body>
+</html>

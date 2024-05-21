@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANK</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightskyblue;
+            background-image: url(https://d.vlfin.ru/image/1200/0?filename=/uploads/qS95rrtrb7OOB2K0UeP7GqWnSrJ03WRYIUP32Plt.png);
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        main input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        main button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        main button.cancel {
+            background-color: #f44336;
+        }
+        main button:hover {
+            opacity: 0.9;
+        }
+        #answer {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Віртуальний банкомат</h2>
+        <p>Доступна сума від 50 до 3000 грн</p>
+        <input type="number" id="amount" placeholder="Введіть суму для зняття">
+        <div>
+            <button onclick="withdraw()">Зняти</button>
+            <button class="cancel" onclick="cancel()">Скасувати</button>
+        </div>
+        <p id="answer"></p>
+    </main>
+    
+    <script>
+        function withdraw() {
+            let money = parseInt(document.getElementById('amount').value);
+            let answer = document.getElementById('answer');
+
+            if (isNaN(money)) {
+                answer.innerHTML = 'Введіть правильну суму.';
+                return;
+            }
+
+            if (money < 50 || money > 3000) {
+                answer.innerHTML = 'На жаль, Ви можете зняти гроші на суму від 50 грн. до 3000 грн.';
+            } else if (money % 50 == 0) {
+                answer.innerHTML = `Заберіть свої гроші у сумі: ${money} грн`;
+            } else {
+                answer.innerHTML = `В банкоматі немає таких купюр тому заберіть ваші гроші у сумі: ${money - money % 50} грн, а ${money % 50} грн я заберу собі як комісію`;
+            }
+        }
+
+        function cancel() {
+            document.getElementById('amount').value = '';
+            document.getElementById('answer').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

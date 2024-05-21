@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckBR</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightskyblue;
+        }
+        main {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        button.cancel {
+            background-color: #f44336;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        #positions {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: lightskyblue;
+    }
+    main {
+        text-align: center;
+    }
+    input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        width: 300px;
+        box-sizing: border-box;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin: 5px;
+    }
+    button.cancel {
+        background-color: #f44336;
+    }
+    button:hover {
+        opacity: 0.9;
+    }
+    #positions {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<main>
+    <h2>Перевірка "бр" в тексті</h2>
+    <input type="text" id="textInput" placeholder="Введіть текст">
+    <br>
+    <button onclick="calculatePositions()">Перевірити</button>
+    <button class="cancel" onclick="cancel()">Скасувати</button>
+    <div id="positions"></div>
+</main>
+
+<script>
+    function calculatePositions() {
+        var text = document.getElementById('textInput').value;
+        var searchStr = "бр";
+        var positions = [];
+        var position = text.indexOf(searchStr);
+        while (position !== -1) {
+            positions.push(position);
+            position = text.indexOf(searchStr, position + 1);
+        }
+        if (positions.length > 0) {
+            document.getElementById("positions").innerHTML = "<p> Позиції збігів: " + positions.join(", ") + "</p>";
+        } else {
+            document.getElementById("positions").innerHTML = "<p> Збігів не знайдено </p>";
+        }
+    }
+
+    function cancel() {
+        document.getElementById('textInput').value = '';
+        document.getElementById('positions').innerHTML = '';
+    }
+</script>
+</body>
+</html>

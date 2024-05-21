@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightskyblue;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        main input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        main button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        main button.cancel {
+            background-color: #f44336;
+        }
+        main button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Скільки вам років</h2>
+        <input type="number" id="age" placeholder="Скільки вам років?">
+        <div>
+            <button onclick="checkAge()">Перевірити</button>
+            <button class="cancel" onclick="cancel()">Скасувати</button>
+        </div>
+        <p id="answer"></p>
+    </main>
+    
+    <script>
+        function checkAge() {
+            let age = document.getElementById('age').value;
+            let answer = document.getElementById('answer');
+            let years;
+
+            if (age % 10 == 1 && age != 11 && age != 111) {
+                years = "рік";
+            } else if (age % 10 >= 2 && age % 10 <= 4 && !(age >= 12 && age <= 14)) {
+                years = "роки";
+            } else {
+                years = "років";
+            }
+
+            if (age >= 18 && age <= 111) {
+                answer.innerHTML = `Вам ${age} ${years}. Вітаю вас!`;
+            } else {
+                answer.innerHTML = `Вам ${age} ${years}. Ви не користувач нашого сайта!`;
+            }
+        }
+
+        function cancel() {
+            document.getElementById('age').value = '';
+            document.getElementById('answer').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

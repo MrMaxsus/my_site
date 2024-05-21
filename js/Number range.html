@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number range</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightskyblue;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        main input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        main button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        main button:hover {
+            opacity: 0.9;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Сума чисел в діапазоні</h2>
+        <input type="number" id="min" placeholder="Введіть мінімальне число діапазону" value="0">
+        <input type="number" id="max" placeholder="Введіть максимальне число діапазону" value="100">
+        <button onclick="calculateSum()">Розрахувати</button>
+        <p id="sumResult"></p>
+    </main>
+
+    <script>
+        function calculateSum() {
+            let min = +document.getElementById('min').value;
+            let max = +document.getElementById('max').value;
+            let sum = 0;
+
+            for (let count = min; count <= max; count++) {
+                sum += count;
+            }
+
+            document.getElementById('sumResult').innerText = `Сума чисел в діапазоні від ${min} до ${max} дорівнює ${sum}`;
+        }
+    </script>
+</body>
+</html>

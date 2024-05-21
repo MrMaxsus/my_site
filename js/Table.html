@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: lightskyblue;
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .multiplication-block {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin: 10px;
+        width: 200px;
+    }
+    p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+</style>
+</head>
+<body>
+<div class="row">
+    <div class="multiplication-block" id="multiplicationTable1">
+        <h2>Таблиця множення для числа 1</h2>
+    </div>
+
+    <div class="multiplication-block" id="multiplicationTable2">
+        <h2>Таблиця множення для числа 2</h2>
+    </div>
+
+    <div class="multiplication-block" id="multiplicationTable3">
+        <h2>Таблиця множення для числа 3</h2>
+    </div>
+
+    <div class="multiplication-block" id="multiplicationTable4">
+        <h2>Таблиця множення для числа 4</h2>
+    </div>
+
+    <div class="multiplication-block" id="multiplicationTable5">
+        <h2>Таблиця множення для числа 5</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="multiplication-block" id="multiplicationTable6">
+        <h2>Таблиця множення для числа 6</h2>
+    </div>
+
+    <div class="multiplication-block" id="multiplicationTable7">
+        <h2>Таблиця множення для числа 7</h2>
+    </div>
+
+    <div class="multiplication-block" id="multiplicationTable8">
+        <h2>Таблиця множення для числа 8</h2>
+    </div>
+
+    <div class="multiplication-block" id="multiplicationTable9">
+        <h2>Таблиця множення для числа 9</h2>
+    </div>
+
+    <div class="multiplication-block" id="multiplicationTable10">
+        <h2>Таблиця множення для числа 10</h2>
+    </div>
+</div>
+
+<script>
+    function generateMultiplicationTable(containerId, number) {
+        const container = document.getElementById(containerId);
+        let tableContent = '';
+
+        for (let i = 1; i <= 10; i++) {
+            tableContent += `<p>${number} * ${i} = ${number * i}</p>`;
+        }
+
+        container.innerHTML += tableContent;
+    }
+
+    generateMultiplicationTable('multiplicationTable1', 1);
+    generateMultiplicationTable('multiplicationTable2', 2);
+    generateMultiplicationTable('multiplicationTable3', 3);
+    generateMultiplicationTable('multiplicationTable4', 4);
+    generateMultiplicationTable('multiplicationTable5', 5);
+    generateMultiplicationTable('multiplicationTable6', 6);
+    generateMultiplicationTable('multiplicationTable7', 7);
+    generateMultiplicationTable('multiplicationTable8', 8);
+    generateMultiplicationTable('multiplicationTable9', 9);
+    generateMultiplicationTable('multiplicationTable10', 10);
+</script>
+</body>
+</html>

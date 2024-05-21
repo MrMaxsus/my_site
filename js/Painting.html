@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painting</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: lightskyblue;
+    }
+    #canvasContainer {
+        position: relative;
+    }
+    canvas {
+        border: 2px solid black;
+        background-color: white;
+        border-radius: 8px;
+    }
+    #paramsContainer {
+        position: absolute;
+        top: -150px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        border: 2px solid black;
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+    }
+    #numFiguresFrame {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    label {
+        font-weight: bold;
+    }
+    input[type="number"] {
+        padding: 10px;
+        font-size: 16px;
+        width: 200px;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 1px solid black;
+        text-align: center;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin: 5px;
+    }
+    button.cancel {
+        background-color: #f44336;
+    }
+    button:hover {
+        opacity: 0.9;
+    }
+</style>
+</head>
+<body>
+<div id="canvasContainer">
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <div id="paramsContainer">
+        <label for="numFigures">Скільки бажаєте трикутників:</label><br>
+        <input type="number" id="numFigures" placeholder="Введіть кількість"><br>
+        <button onclick="drawRandomFigures()">Перевірити</button>
+        <button class="cancel" onclick="cancel()">Скасувати</button>
+    </div>
+</div>
+
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function drawRandomFigures() {
+        var numFigures = document.getElementById("numFigures").value;
+        numFigures = parseInt(numFigures);
+
+        if (isNaN(numFigures) || numFigures < 1) {
+            alert("Введіть коректне число більше 0.");
+            return;
+        }
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (var i = 0; i < numFigures; i++) {
+            var x = Math.random() * (canvas.width - 100) + 50;
+            var y = Math.random() * (canvas.height - 100) + 50;
+            var size = Math.random() * 50 + 20;
+            var color = getRandomColor();
+
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + size, y);
+            ctx.lineTo(x + size / 2, y - size);
+            ctx.closePath();
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+    }
+
+    function cancel() {
+        document.getElementById("numFigures").value = "";
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+</script>
+</body>
+</html>
