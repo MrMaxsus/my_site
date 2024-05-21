@@ -32,17 +32,13 @@ nav,aside{
   width: 20%;
   float: left;
 }
-aside2{
-  width: 20%;
-  float: right;
-}
 main{
   background-color: aquamarine;
   width: 60%;
   float: left;
 }
 h2{
-  text-align: ustify;
+  text-align: center;
   font-size: 24px;
   background-color: transparent;
 }
@@ -229,7 +225,7 @@ button.b2:hover {
 }
 .map{
   float: right;
-  padding: 1%;
+  padding: 3%;
 }
 /*SMB*/
 .fa {
