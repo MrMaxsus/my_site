@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Сайт Максима</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/site_verifi.css">
+    <link rel="icon" href="img/meduza2.jpg">
+    <style>
+        body {
+            display: grid;
+            grid-template-areas: 
+                "header header header"
+                "nav main aside1"
+                "footer footer footer";
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            gap: 10px;
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        header {
+            grid-area: header;
+            text-align: center;
+            position: relative;
+        }
+        header video {
+            width: 100%;
+            height: auto;
+        }
+        header h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+        nav {
+            grid-area: nav;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav li {
+            margin: 5px 0;
+        }
+        main {
+            grid-area: main;
+        }
+        aside.left {
+            grid-area: aside1;
+        }
+        aside.right {
+            grid-area: aside1;
+        }
+        footer {
+            grid-area: footer;
+            text-align: center;
+        }
+        .a1, .b2 {
+            display: block;
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #f2f2f2;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            border: 1px solid #ccc;
+        }
+        .a1:hover, .b2:hover {
+            background-color: #ddd;
+        }
+        iframe, video {
+            width: 100%;
+            height: 400px;
+        }
+        footer section a {
+            margin: 5px;
+            text-decoration: none;
+            color: inherit;
+        }
+        .map {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="bgvideo">
+        <video src="video/cliff_-_22619 (720p).mp4" type="video/mp4" autoplay muted loop></video>
+        <h1>Сайт Максима</h1>
+    </div>
+</header>
+<nav>
+    <h2>Навігація</h2>
+    <ul>
+        <li><a href="#about" class="a1">Про мене</a></li>
+        <li><a href="#video" class="a1">Game trailer GTA 6</a></li>
+        <li><a href="#wiki" class="a1">Wiki GTA 6</a></li>
+        <li><a href="#myvideo" class="a1">Моє відео</a></li>
+        <li><a href="#mycontaсts" class="a1">Мої контакти</a></li>
+    </ul>
+</nav>
+<main>
+    <section id="about">
+        <h2>Про мене</h2>
+        <p>Мене звати Максим, мені 13 років, я навчаюся в 7 класі, цікавлюсь комп’ютерною технікою та пробую себе у програмуванні. Мені подобається слідкувати за розвитком сучасних технологій. Мені подобаються ігри симулятори. Деякі з моїх улюблених: Bus Driver Simulator, Train Sim World® 4 та інші. Радий буду знайомству, заходьте до мене на сайт, мої контакти на соц. мережі внизу сторінки.</p>
+        <img id="img2" src="img/Maks.jpg" alt="Фото Максима" style="max-width: 100%;">
+    </section>
+    <section id="video">
+        <h2>Game trailer GTA 6</h2>
+        <iframe src="https://www.youtube.com/embed/QdBZY2fkU-0" title="Grand Theft Auto VI Trailer 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </section>
+    <section id="wiki">
+        <h2>Wiki GTA 6</h2>
+        <iframe src="https://uk.wikipedia.org/wiki/Grand_Theft_Auto_VI"></iframe>
+    </section>
+    <section id="myvideo">
+        <h2>Моє відео</h2>
+        <video controls>
+            <source src="video/hawaii_-_21113 (720p).mp4" type="video/mp4">
+        </video>
+    </section>
+</main>
+<aside class="left">
+    <h2>Мої роботи Web design</h2>
+    <ul>
+        <li><a href="base.html" target="_blank"><button class="b2">Ми вивчаємо вебдизайн</button></a></li>
+        <li><a href="gradient.html" target="_blank"><button class="b2">Ми вивчаєм градієнти</button></a></li>
+        <li><a href="images.html" target="_blank"><button class="b2">Ми вивчаємо роботу з зображеннями</button></a></li>
+        <li><a href="list.html" target="_blank"><button class="b2">Ми вивчаємо списки</button></a></li>
+        <li><a href="animation.html" target="_blank"><button class="b2">Ми вивчаємо анімацію тексту</button></a></li>
+        <li><a href="table.html" target="_blank"><button class="b2">Ми вивчаємо роботу з таблицями</button></a></li>
+        <li><a href="text.html" target="_blank"><button class="b2">Ми вивчаємо роботу з текстом</button></a></li>
+        <li><a href="links.html" target="_blank"><button class="b2">Ми вивчаємо посилання та кнопки</button></a></li>
+        <li><a href="blocks.html" target="_blank"><button class="b2">Ми вивчаємо роботу з блоками</button></a></li>
+        <li><a href="fonts.html" target="_blank"><button class="b2">Ми вивчаємо форматування символів</button></a></li>
+        <li><a href="forms.html" target="_blank"><button class="b2">Ми вивчаємо форматування символів</button></a></li>
+        <li><a href="map.html" target="_blank"><button class="b2">Ми вивчаємо особливості роботи тегу</button></a></li>
+    </ul>
+</aside>
+<aside class="right">
+    <h2>Мої роботи JS</h2>
+    <ul>
+        <li><a href="js/Animation.html" target="_blank"><button class="b2">Анімація</button></a></li>
+        <li><a href="js/Painting.html" target="_blank"><button class="b2">Малювання трикутників</button></a></li>
+        <li><a href="js/CheckBR.html" target="_blank"><button class="b2">Знайти "Бр"</button></a></li>
+        <li><a href="js/ChessTable.html" target="_blank"><button class="b2">Шахівниця</button></a></li>
+        <li><a href="js/Table.html" target="_blank"><button class="b2">Таблиця множення</button></a></li>
+        <li><a href="js/ABC.html" target="_blank"><button class="b2">Абетка</button></a></li>
+        <li><a href="js/BANK1.html" target="_blank"><button class="b2">Банкомат</button></a></li>
+        <li><a href="js/Compliments.html" target="_blank"><button class="b2">Компліменти</button></a></li>
+        <li><a href="js/Login.html" target="_blank"><button class="b2">Перевірка логіна</button></a></li>
+        <li><a href="js/School%20grade.html" target="_blank"><button class="b2">Який в тебе рівень</button></a></li>
+        <li><a href="js/Greetengs.html" target="_blank"><button class="b2">Привітання</button></a></li>
+        <li><a href="js/Number.html" target="_blank"><button class="b2">Відгадай число</button></a></li>
+        <li><a href="js/Hero.html" target="_blank"><button class="b2">Відгадай актора</button></a></li>
+        <li><a href="js/Age.html" target="_blank"><button class="b2">Доступ за віком</button></a></li>
+        <li><a href="js/Emoji.html" target="_blank"><button class="b2">Генератор emoji</button></a></li>
+        <li><a href="js/Number%20range.html" target="_blank"><button class="b2">Сума чисел в діапазоні</button></a></li>
+        <li><a href="js/Seasons.html" target="_blank"><button class="b2">Пори року</button></a></li>
+        <li><a href="js/Degree.html" target="_blank"><button class="b2">Розрахунок степеня</button></a></li>
+        <li><a href="js/Factorial.html" target="_blank"><button class="b2">Факторіал</button></a></li>
+        <li><a href="js/Space.html" target="_blank"><button class="b2">Перший політ у космос</button></a></li>
+        <li><a href="js/Triangle.html" target="_blank"><button class="b2">Розрахунок площі та периметру</button></a></li>
+    </ul>
+</aside>
+<footer>
+    <h2>Мої контакти</h2>
+    <section id="mycontaсts">  
+        <a href="https://www.facebook.com/profile.php?id=61553161085391" class="fa fa-facebook"></a>
+        <a href="https://twitter.com/?lang=ua" class="fa fa-twitter"></a>
+        <a href="https://www.google.com.ua/" class="fa fa-google"></a>
+        <a href="https://ua.linkedin.com/" class="fa fa-linkedin"></a>
+        <a href="https://www.youtube.com/channel/UCCTM-3iLQMxY-LmSySmh2LQ" class="fa fa-youtube"></a>
+        <a href="https://www.instagram.com/maxim_liechov/" class="fa fa-instagram"></a>
+        <a href="https://ru.pinterest.com/" class="fa fa-pinterest"></a>
+        <a href="https://join.skype.com/invite/HedZ7yb0QgcP" class="fa fa-skype"></a>
+    </section>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d377.2430276401564!2d30.496543693663888!3d50.501080520635796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTDCsDMwJzA0LjEiTiAzMMKwMjknNDkuNiJF!5e0!3m2!1sru!2sua!4v1710579908064!5m2!1sru!2sua" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+</footer>
+</body>
+</html>
